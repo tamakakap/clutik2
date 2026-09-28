@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Dudeko Alva Nayottama</title>
+
+  <!-- Google Fonts Inter & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Reset & CSS Custom Properties */
+    :root {
+      --bg-dark: #0b132b;
+      --bg-card: #1c2541;
+      --bg-card-hover: #232f52;
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --gradient-blue: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
+      --gradient-card: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-logo {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Background Aesthetic Glowing Blobs */
+    .glow-blob {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob-1 { top: -100px; left: -100px; }
+    .blob-2 { bottom: 100px; right: -100px; background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%); }
+
+    /* Layout Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-subtitle {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: var(--gradient-blue);
+      margin: 12px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11, 19, 43, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .brand-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-btn {
+      background: var(--gradient-blue);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      transition: var(--transition);
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-weight: 400;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-blue);
+      color: #fff;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .hero-img-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-img-card {
+      position: relative;
+      width: 320px;
+      height: 380px;
+      border-radius: var(--radius-lg);
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: calc(var(--radius-lg) + 2px);
+      background: linear-gradient(135deg, var(--primary), var(--accent), transparent);
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-light);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .profile-info {
+      text-align: center;
+    }
+
+    .profile-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .profile-tag {
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    /* About & Stats Section */
+    .about-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-item {
+      background: rgba(11, 19, 43, 0.6);
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary-light);
+      box-shadow: 0 12px 30px -10px var(--accent-glow);
+    }
+
+    .skill-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .skill-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .skill-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* Hobbies Section */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .hobby-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hobby-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    .hobby-header {
+      height: 180px;
+      background: linear-gradient(135deg, #1e3a8a, #0284c7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hobby-header i {
+      font-size: 4.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .hobby-body {
+      padding: 28px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hobby-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .hobby-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .hobby-benefit {
+      margin-top: auto;
+      background: rgba(11, 19, 43, 0.5);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent);
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary-light);
+    }
+
+    .project-category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .project-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+    }
+
+    .contact-info {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 36px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail h4 {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-detail p {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .contact-form {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(11, 19, 43, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(11, 19, 43, 0.95);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin: 0 auto 36px auto;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Can be toggled with JS if needed */
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .about-card, .contact-info, .contact-form {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Ambient Lights -->
+  <div class="glow-blob blob-1"></div>
+  <div class="glow-blob blob-2"></div>
+
+  <!-- Header & Navigasi -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-code" style="color: var(--accent);"></i> Dudeko<span>.dev</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#hobbies">Hobi</a></li>
+        <li><a href="#projects">Proyek</a></li>
+      </ul>
+      <a href="#contact" class="nav-btn">Hubungi Saya</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-status">
+          <span class="status-dot"></span> Terbuka Untuk Proyek & Kolaborasi
+        </div>
+        <h1 class="hero-title">
+          Halo, Saya <br><span>Dudeko Alva Nayottama</span>
+        </h1>
+        <p class="hero-subtitle">Web Developer & Backend Enthusiast</p>
+        <p class="hero-description">
+          Mengembangkan aplikasi web modern yang cepat, terstruktur, dan scalable menggunakan ekosistem PHP, Laravel, serta teknologi cutting-edge seperti Hermes dan OpenClaw.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-rocket"></i> Lihat Portofolio
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fa-regular fa-envelope"></i> Kontak Saya
+          </a>
+        </div>
+      </div>
+
+      <!-- Profile Photo Container -->
+      <div class="hero-img-wrapper">
+        <div class="hero-img-card">
+          <img src="fotogueh.jpeg" alt="Foto Dudeko Alva Nayottama" class="profile-img" onerror="this.src='https://placehold.co/220x220/1d4ed8/ffffff?text=Dudeko+Alva'">
+          <div class="profile-info">
+            <div class="profile-name">Dudeko Alva N.</div>
+            <div class="profile-tag">Full-Stack Web Developer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Mengenal Lebih Dekat</span>
+        <h2 class="section-title">Tentang Saya</h2>
+      </div>
+
+      <div class="about-card">
+        <p class="about-text">
+          Saya adalah seorang pengembang web yang berdedikasi tinggi dalam menciptakan solusi perangkat lunak yang efisien dan elegan. Berfokus pada pemeliharaan arsitektur kode yang bersih (clean code) dan performa tinggi, saya memiliki pengalaman luas dalam arsitektur backend berbasis PHP dan Laravel, integrasi API, serta eksplorasi tool modern.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Komitmen Kualitas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Teknologi Utama</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Semangat Belajar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Kemampuan Teknis</span>
+        <h2 class="section-title">Keahlian Pemrograman</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill 1 -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3 class="skill-title">Pemrograman Web</h3>
+          <p class="skill-desc">Membangun antarmuka web interaktif, responsif, dan ramah pengguna dengan standar standar modern.</p>
+          <div class="skill-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3 Native</span>
+            <span class="tag">JavaScript ES6</span>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
+          <h3 class="skill-title">PHP (Hypertext Preprocessor)</h3>
+          <p class="skill-desc">Pengembangan logika server-side, manajemen basis data, serta arsitektur OOP PHP yang solid.</p>
+          <div class="skill-tags">
+            <span class="tag">PHP 8.x</span>
+            <span class="tag">OOP</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-brands fa-laravel"></i></div>
+          <h3 class="skill-title">Laravel Framework</h3>
+          <p class="skill-desc">Pengembangan aplikasi skala besar cepat dengan Blade, Eloquent ORM, serta arsitektur MVC.</p>
+          <div class="skill-tags">
+            <span class="tag">Laravel 10/11</span>
+            <span class="tag">Blade</span>
+            <span class="tag">Eloquent</span>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="skill-title">Hermes Engine</h3>
+          <p class="skill-desc">Optimasi eksekusi runtime JavaScript berkinerja tinggi untuk aplikasi modern dan efisiensi memori.</p>
+          <div class="skill-tags">
+            <span class="tag">JS Optimization</span>
+            <span class="tag">Bytecode</span>
+            <span class="tag">Performance</span>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fa-solid fa-claw-marks"></i><i class="fa-solid fa-gear"></i></div>
+          <h3 class="skill-title">OpenClaw</h3>
+          <p class="skill-desc">Integrasi dan eksplorasi ekosistem OpenClaw untuk otomatisasi serta pengolahan data pintar.</p>
+          <div class="skill-tags">
+            <span class="tag">Automation</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">Data Tools</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section id="hobbies">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Gaya Hidup & Keseimbangan</span>
+        <h2 class="section-title">Hobi & Minat</h2>
+      </div>
+
+      <div class="hobbies-grid">
+        <!-- Hobby 1: Berlari -->
+        <div class="hobby-card">
+          <div class="hobby-header">
+            <i class="fa-solid fa-person-running"></i>
+          </div>
+          <div class="hobby-body">
+            <h3 class="hobby-title">Berlari (Running)</h3>
+            <p class="hobby-desc">
+              Lari adalah sarana utama saya menjaga daya tahan fisik dan kejernihan pikiran. Aktivitas ini melatih ketahanan mental, disiplin diri, serta fokus konsentrasi yang konsisten.
+            </p>
+            <div class="hobby-benefit">
+              <i class="fa-solid fa-heart-pulse" style="color: var(--accent);"></i> <strong>Dampak ke Coding:</strong> Melatih stamina mental saat menyelesaikan bug rumit.
+            </div>
+          </div>
+        </div>
+
+        <!-- Hobby 2: Bermain Voli -->
+        <div class="hobby-card">
+          <div class="hobby-header">
+            <i class="fa-solid fa-volleyball"></i>
+          </div>
+          <div class="hobby-body">
+            <h3 class="hobby-title">Bermain Voli (Volleyball)</h3>
+            <p class="hobby-desc">
+              Voli mengajarkan saya pentingnya komunikasi aktif, kerja sama tim, kelincahan, serta koordinasi strategis yang cepat dalam menghadapi tantangan di lapangan.
+            </p>
+            <div class="hobby-benefit">
+              <i class="fa-solid fa-people-group" style="color: var(--accent);"></i> <strong>Dampak ke Coding:</strong> Meningkatkan kemampuan berkolaborasi dalam tim pengembang.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Karya Terpilih</span>
+        <h2 class="section-title">Portofolio Proyek</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-category">Laravel & PHP</div>
+          <h3 class="project-title">Sistem Manajemen Event Sports</h3>
+          <p class="project-desc">Platform web interaktif untuk pendaftaran turnamen voli dan event running lengkap dengan registrasi peserta & pembayaran online.</p>
+          <div class="project-tech">
+            <span class="tag">Laravel</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Bootstrap/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Kode Sumber</a>
+            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo Live</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-category">OpenClaw & API</div>
+          <h3 class="project-title">Automation & Scraper Tool</h3>
+          <p class="project-desc">Pemanfaatan modul OpenClaw untuk otomatisasi pengumpulan data statistik dan pemrosesan informasi secara cepat.</p>
+          <div class="project-tech">
+            <span class="tag">OpenClaw</span>
+            <span class="tag">PHP</span>
+            <span class="tag">JSON API</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Kode Sumber</a>
+            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Dokumentasi</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-category">Hermes Optimization</div>
+          <h3 class="project-title">Fast Web Engine Dashboard</h3>
+          <p class="project-desc">Dashboard web interaktif yang dikembangkan dengan optimasi script Hermes untuk respon halaman super kencang.</p>
+          <div class="project-tech">
+            <span class="tag">Hermes Engine</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fa-brands fa-github"></i> Kode Sumber</a>
+            <a href="#" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Mari Terhubung</span>
+        <h2 class="section-title">Hubungi Saya</h2>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3 style="font-size: 1.4rem; margin-bottom: 20px;">Informasi Kontak</h3>
+          <p style="color: var(--text-muted); margin-bottom: 30px;">
+            Tertarik bekerja sama atau ingin bertanya seputar proyek pemrograman web? Silakan hubungi saya melalui form atau saluran berikut.
+          </p>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-user"></i></div>
+            <div class="contact-detail">
+              <h4>Nama Lengkap</h4>
+              <p>Dudeko Alva Nayottama</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-detail">
+              <h4>Email</h4>
+              <p>tamadudeko@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-detail">
+              <h4>Lokasi</h4>
+              <p>Indonesia</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan berhasil dikirim! Terima kasih.');">
+          <div class="form-group">
+            <label class="form-label">Nama Anda</label>
+            <input type="text" class="form-control" placeholder="Masukkan nama..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Alamat Email</label>
+            <input type="email" class="form-control" placeholder="nama@email.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pesan / Topik</label>
+            <textarea class="form-control" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <a href="#" class="brand-logo">
+        <i class="fa-solid fa-code" style="color: var(--accent);"></i> Dudeko<span>.dev</span>
+      </a>
+      <div class="social-links">
+        <a href="#" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+      <p class="copyright">
+        &copy; 2026 Dudeko Alva Nayottama. Dibuat dengan HTML & CSS Native.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
